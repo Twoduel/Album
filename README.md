@@ -1,2 +1,2 @@
-# HTML&CSS
-Create a web page using HTML and CSS.
+# Basical Practice Web Development
+Create a web page using HTML, CSS and JavaScript.
