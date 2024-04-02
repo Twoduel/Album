@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
 
@@ -74,6 +74,14 @@
         }
     </style>
     <script>
+        $(document).ready(function () {
+            let url = "http://spartacodingclub.shop/sparta_api/seoulair";
+            fetch(url).then(res => res.json()).then(data => {
+                let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
+                $('#msg').text(mise)
+            })
+        })
+
         function openclose() {
             // toggle : JavaScript에서 버튼을 누르면 없어졌다가 생기는 기능을 하는 함수. display값을 none으로
             $('#postingbox').toggle();
@@ -107,6 +115,7 @@
 <body>
     <div class="mytitle">
         <h1>나만의 추억앨범</h1>
+        <p>현재 서울의 미세먼지 : <span id="msg">좋음</span></p>
         <button onclick="openclose()">추억 저장하기</button>
     </div>
 
@@ -138,7 +147,7 @@
 
     <!--앨범 카드 만들기-->
     <div class="mycards">
-        <div id ="card" class="row row-cols-1 row-cols-md-4 g-4">
+        <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
