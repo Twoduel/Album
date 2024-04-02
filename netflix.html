@@ -44,6 +44,14 @@
         }
     </style>
     <script>
+        $(document).ready(function () {
+            let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+            fetch(url).then(res => res.json()).then(data => {
+                let temp = data['temp'];
+                $('#temperature').text(temp);
+            })
+        })
+
         // 영화 기록하기 버튼을 누르면 포스팅박스를 접고 펼치는 함수
         function openclose() {
             $('#postingbox').toggle();
@@ -89,6 +97,7 @@
                     <li><a href="#" class="nav-link px-2 text-white">시리즈</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">영화</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">내가 찜한 콘텐츠</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">현재 기온 : <span id="temperature"></span>도</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
